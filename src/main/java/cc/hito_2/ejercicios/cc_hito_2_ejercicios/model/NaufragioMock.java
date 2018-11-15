@@ -17,7 +17,7 @@ public class NaufragioMock {
         Naufragio naufragio1 = new Naufragio(1l, "Titanic", "Transatlántico inglésMuchos muertos de la epoca", 1992);
         Naufragio naufragio2 = new Naufragio(2l, "RMS Lusitania", "transatlántico inglés. 7 de mayo de 1915, 1195 muertos.", 1990);
         Naufragio naufragio4 = new Naufragio(3l, "Wilhelm Gustloff,", "transatlántico alemán hundido el 31 de enero de 1945 ", 1980);
-        Naufragio naufragio5 = new Naufragio(4l, "ARA General Belgrano", "crucero de la Armada Argentina, hundido durante la guerra de Malvinas en 1982", 1981);
+        Naufragio naufragio5 = new Naufragio(4l, "ARA General Heroku", "crucero de la Armada Argentina, hundido durante la guerra de Malvinas en 1982", 1981);
         naufragios.put(1l, naufragio1);
         naufragios.put(2l, naufragio2);
         naufragios.put(3l, naufragio4);

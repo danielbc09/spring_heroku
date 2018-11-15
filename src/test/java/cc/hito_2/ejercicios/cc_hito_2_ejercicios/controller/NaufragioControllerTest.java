@@ -7,12 +7,17 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import java.util.Arrays;
+
+import static org.hamcrest.Matchers.equalTo;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+
 
 public class NaufragioControllerTest {
 
@@ -55,7 +60,21 @@ public class NaufragioControllerTest {
     }
 
     @Test
-    public void getById() {
+    public void getById() throws Exception {
+
+        Naufragio naufragio1 = new Naufragio();
+        naufragio1.setId(1l);
+        naufragio1.setNombre("Naufragio1 Test");
+        naufragio1.setAnoDescubrimiento(1999);
+        naufragio1.setDescripcion("Naufragio de prueba 1");
+
+        when(naufragioMock.getById(1l)).thenReturn(naufragio1);
+
+        //When
+        mockMvc.perform(get("/api/v1/naufragio/1")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.nombre", equalTo(naufragio1.getNombre())));
     }
 
     @Test

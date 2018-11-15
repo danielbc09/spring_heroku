@@ -29,18 +29,18 @@ public class NaufragioMock {
         return new ArrayList<Naufragio>(naufragios.values());
     }
 
-    public static Naufragio create(Naufragio naufragio) {
+    public Naufragio create(Naufragio naufragio) {
         idIndex += idIndex;
         naufragio.setId(idIndex);
         naufragios.put(idIndex, naufragio);
         return naufragio;
     }
 
-    public static Naufragio getById(Long id){
+    public Naufragio getById(Long id){
         return naufragios.get(id);
     }
 
-    public static Naufragio update(Long id, Naufragio naufragio){
+    public Naufragio update(Long id, Naufragio naufragio){
         naufragios.put(id, naufragio);
         return  naufragio;
     }

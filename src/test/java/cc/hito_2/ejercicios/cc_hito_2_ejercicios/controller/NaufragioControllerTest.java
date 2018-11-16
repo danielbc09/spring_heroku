@@ -73,7 +73,7 @@ public class NaufragioControllerTest {
         //When
         mockMvc.perform(get("/api/v1/naufragio/1")
                 .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isOk())
                 .andExpect(jsonPath("$.nombre", equalTo(naufragio1.getNombre())));
     }
 
